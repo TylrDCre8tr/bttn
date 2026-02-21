@@ -2,13 +2,20 @@
 <head>
 <base target="_blank">
 <style>
-body, html {
-    height: 20%;
+html, body {
+    height: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1e1e1e; /* optional dark background */
+    background: #1e1e1e; /* optional background */
+}
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* optional, if you stack elements */
 }
 
 .launcher-btn {
@@ -48,25 +55,29 @@ body, html {
 </style>
 </head>
 <body>
-<button class="launcher-btn" onclick="openEaglerInBlank()">
-  <i class="fas fa-gamepad"></i>Open Eaglercraft in About:Blank
-</button>
+
+<div class="center-wrapper">
+    <button class="launcher-btn" onclick="openEaglerInBlank()">
+        <i class="fas fa-gamepad"></i>Open Eaglercraft in About:Blank
+    </button>
+</div>
 
 <script>
 function openEaglerInBlank() {
-  var eaglerCode = document.getElementById('eagler-source-code').value;
-  var win = window.open();
-  if (!win) {
-    alert('Pop-up was blocked! Please allow pop-ups for this site.');
-    return;
-  }
-  win.document.write(eaglerCode);
-  win.document.close();
+    var eaglerCode = document.getElementById('eagler-source-code').value;
+    var win = window.open();
+    if (!win) {
+        alert('Pop-up was blocked! Please allow pop-ups for this site.');
+        return;
+    }
+    win.document.write(eaglerCode);
+    win.document.close();
 }
 </script>
 
 <textarea id="eagler-source-code" style="display:none;">
-<!-- your full HTML source code here -->
+<!-- Keep all your existing full HTML source code here -->
 </textarea>
+
 </body>
 </html>
