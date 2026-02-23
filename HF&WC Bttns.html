@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google</title>
+<link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.center-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.fullscreen-button {
+    background: linear-gradient(135deg, #6f42c1 0%, #00bfff 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.fullscreen-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+    background: linear-gradient(135deg, #7a5cff 0%, #33ccff 100%);
+}
+
+.fullscreen-button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
+}
+
+#status {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 10px;
+    min-height: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-wrapper">
+
+    <button class="fullscreen-button" onclick="floodHistory()">
+        Flood History
+    </button>
+
+    <button class="fullscreen-button" onclick="cloakPage()">
+        Cloak a Website
+    </button>
+
+    <div id="status"></div>
+
+</div>
+
+<script>
+// --- 1. HISTORY FLOOD LOGIC ---
+function floodHistory() {
+    let num = prompt("History flood amount (Max 10000):", "10000");
+    let count = parseInt(num);
+    if (isNaN(count)) return;
+    count = Math.min(count, 10000);
+
+    let i = 0;
+    let status = document.getElementById('status');
+    let baseUrl = window.location.href.split('?')[0];
+
+    function start() {
+        if (i < count) {
+            history.pushState({id: i}, "Google Search", baseUrl + "?q=google-search-" + i);
+            i++;
+            if (i % 100 === 0) status.innerText = "Flooding: " + i + " / " + count;
+            setTimeout(start, 0);
+        } else {
+            status.innerText = "Flood Complete!";
+            alert("Success! " + count + " entries added.");
+        }
+    }
+    start();
+}
+
+// --- 2. URL CLOAKER LOGIC ---
+function cloakPage() {
+    let url = prompt("Enter website URL to cloak (e.g., wikipedia.org):");
+    if (!url) return;
+
+    let target = url.startsWith('http') ? url : 'https://' + url;
+    let win = window.open('about:blank', '_blank');
+
+    if (!win) {
+        alert("Please allow pop-ups for this site to use the cloaker.");
+        return;
+    }
+
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    win.document.body.style.overflow = 'hidden';
+    win.document.title = "Google";
+
+    let link = win.document.createElement('link');
+    link.rel = 'icon';
+    link.href = 'https://www.google.com/favicon.ico';
+    win.document.head.appendChild(link);
+
+    let iframe = win.document.createElement('iframe');
+    iframe.style = "position:fixed; top:0; left:0; width:100%; height:100%; border:none;";
+    iframe.src = target;
+    win.document.body.appendChild(iframe);
+
+    win.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            win.close();
+        }
+    });
+}
+</script>
+
+</body>
+</html>
