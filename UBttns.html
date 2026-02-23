@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About:Blank Site Opener</title>
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+}
+
+.center-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.fullscreen-button {
+    background: linear-gradient(135deg, #6f42c1 0%, #00bfff 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.fullscreen-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 191, 255, 0.5);
+    background: linear-gradient(135deg, #7a5cff 0%, #33ccff 100%);
+}
+
+.fullscreen-button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
+}
+</style>
+</head>
+<body>
+<div class="center-wrapper">
+
+    <button class="fullscreen-button" onclick="openSite('https://jacobcheeseman.fundacioncidea.org.ar')">
+        1
+    </button>
+
+    <button class="fullscreen-button" onclick="openSite('https://harshsmellsliketoes.fundacioncidea.org.ar/')">
+        2
+    </button>
+
+    <button class="fullscreen-button" onclick="openSite('https://wheresyourmoney.gatewayjobs.com.np/')">
+        3
+    </button>
+
+</div>
+
+<script>
+function openSite(url) {
+    const newWin = window.open("about:blank", "_blank");
+    if (newWin) {
+        const iframe = newWin.document.createElement("iframe");
+        iframe.src = url;
+        iframe.style.position = "fixed";
+        iframe.style.top = "0";
+        iframe.style.left = "0";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+        newWin.document.body.style.margin = "0";
+        newWin.document.body.appendChild(iframe);
+    }
+}
+</script>
+
+</body>
+</html>
