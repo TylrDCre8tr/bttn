@@ -84,6 +84,20 @@ fetch(&quot;https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/PTZABttns.html?t=&
 ">
     Petzah
 </button>
+    <button class="fullscreen-button" onclick="
+fetch(&quot;https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/JMWBttn.html?t=&quot; + Date.now())
+.then(response =&gt; response.text())
+.then(text =&gt; {
+    const newWin = window.open(&quot;about:blank&quot;, &quot;_blank&quot;);
+    if (newWin) {
+        newWin.document.open();
+        newWin.document.write(text);
+        newWin.document.close();
+    }
+});
+">
+    JMW
+</button>
 </div>
 
 <script>
