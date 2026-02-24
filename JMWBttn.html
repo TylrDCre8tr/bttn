@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Launcher</title>
+
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e;
+    font-family: Arial, sans-serif;
+}
+
+.notice {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #4e8cff, #6a5cff);
+    color: white;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="notice">
+    If it ask to verify press it then close the tab.
+</div>
+
+<div class="container">
+    <button class="btn" onclick="openSite('https://enjoywinterbreakeveryone.hotelconsuladoinn.com/')">1</button>
+    <button class="btn" onclick="openSite('https://jordanshotelconsulationservices.com.hotelconsuladoinn.com/')">2</button>
+    <button class="btn" onclick="openSite('https://jordanshotelsignup.com.hotelconsuladoinn.com/')">3</button>
+    <button class="btn" onclick="openSite('https://thesigmaboyhotel.enjoywinterbreak.com.hotelconsuladoinn.com/')">4</button>
+</div>
+
+<script>
+function openSite(url) {
+    var win = window.open("about:blank", "_blank");
+    var iframe = win.document.createElement("iframe");
+    iframe.style = "position:fixed;top:0;left:0;width:100vw;height:100vh;border:none;";
+    iframe.src = url;
+    win.document.body.style.margin = "0";
+    win.document.body.appendChild(iframe);
+}
+</script>
+
+</body>
+</html>
