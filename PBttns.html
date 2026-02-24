@@ -1,4 +1,4 @@
-<style>
+<html><head><style>
 html, body {
     height: 100%;
     margin: 0;
@@ -47,7 +47,7 @@ html, body {
 }
 </style>
 
-<div class="center-wrapper">
+</head><body><div class="center-wrapper">
     <button class="fullscreen-button" onclick="openGame1()">
         Click for Proxy 1
     </button>
@@ -56,19 +56,33 @@ html, body {
         Click for Proxy 2
     </button>
 
-     <button class="fullscreen-button" onclick='
-fetch("https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/UBttns.html?t=" + Date.now())
-.then(response => response.text())
-.then(text => {
-    const newWin = window.open("about:blank", "_blank");
+     <button class="fullscreen-button" onclick="
+fetch(&quot;https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/UBttns.html?t=&quot; + Date.now())
+.then(response =&gt; response.text())
+.then(text =&gt; {
+    const newWin = window.open(&quot;about:blank&quot;, &quot;_blank&quot;);
     if (newWin) {
         newWin.document.open();
         newWin.document.write(text);
         newWin.document.close();
     }
 });
-'>
+">
     Utopia
+</button>
+    <button class="fullscreen-button" onclick="
+fetch(&quot;https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/PTZABttns.html?t=&quot; + Date.now())
+.then(response =&gt; response.text())
+.then(text =&gt; {
+    const newWin = window.open(&quot;about:blank&quot;, &quot;_blank&quot;);
+    if (newWin) {
+        newWin.document.open();
+        newWin.document.write(text);
+        newWin.document.close();
+    }
+});
+">
+    Petzah
 </button>
 </div>
 
@@ -92,4 +106,4 @@ function openGame2() {
 
 }
 
-</script>
+</script></body></html>
