@@ -51,7 +51,7 @@ html, body {
 
     <button 
         class="fullscreen-button"
-   onclick='fetch("https://cdn.jsdelivr.net/gh/gn-math/gn-math-DONTDMCA@main/singlefile.html?t="+Date.now())
+        onclick='fetch("https://cdn.jsdelivr.net/gh/gn-math/gn-math-DONTDMCA@main/singlefile.html?t="+Date.now())
                        .then(response => response.text())
                        .then(text => {
                        const newWin = window.open("about:blank", "_blank");
@@ -81,7 +81,7 @@ html, body {
 
     <button 
         class="fullscreen-button"
-        onclick='fetch(" https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/Bttn3.html?t="+Date.now())
+        onclick='fetch("https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/Bttn3.html?t="+Date.now())
                        .then(response => response.text())
                        .then(text => {
                        const newWin = window.open("about:blank", "_blank");
@@ -92,6 +92,21 @@ html, body {
                        }
                        });'>
         MC
+    </button>
+
+    <button 
+        class="fullscreen-button"
+        onclick='fetch("https://cdn.jsdelivr.net/gh/TylrDCre8tr/bttn@main/Fortzone.html?t="+Date.now())
+                       .then(response => response.text())
+                       .then(text => {
+                       const newWin = window.open("about:blank", "_blank");
+                       if (newWin) {
+                       newWin.document.open();
+                       newWin.document.write(text);
+                       newWin.document.close();
+                       }
+                       });'>
+        FORTZONE
     </button>
 
 </div>
